@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tavli Game 2.0 Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .board {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2px;
+            background-color: #7b3e19;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .triangle {
+            width: 100%;
+            height: 100px;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            background-color: #f4c542;
+        }
+
+        .triangle:nth-child(odd) {
+            background-color: #4a4a4a;
+        }
+
+        .player-piece {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: auto;
+            background-color: white;
+            border: 2px solid black;
+        }
+
+        .dice-container {
+            margin: 20px;
+        }
+
+        .dice {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tavli Game</h1>
+
+    <div class="dice-container">
+        <div class="dice" id="dice1">1</div>
+        <div class="dice" id="dice2">2</div>
+        <br>
+        <button onclick="rollDice()">Roll Dice</button>
+    </div>
+
+    <div class="board">
+        <!-- Render 24 triangles -->
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+
+        <!-- Empty row gap -->
+
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+        <div class="triangle"></div>
+    </div>
+
+    <script>
+        function rollDice() {
+            const dice1 = Math.floor(Math.random() * 6) + 1;
+            const dice2 = Math.floor(Math.random() * 6) + 1;
+
+            document.getElementById('dice1').textContent = dice1;
+            document.getElementById('dice2').textContent = dice2;
+        }
+    </script>
+</body>
+</html>
